@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-banner fixed-top clearfix">
+      <nav class="header-navigation" aria-label="Onward brand banner">
+        <div class="container header-navigation__height">
+          <div class="header-navigation__row">
+            <a
+              class="navbar-brand"
+              href="https://ukonward.com"
+              title="Onward"
+              target="_blank"
+              rel="noreferrer"
+            ><span class="visually-hidden">Onward</span></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="quiz-card" aria-labelledby="quiz-title">
+        <div class="quiz-header">
+          <div>
+            <p class="eyebrow">Interactive Quiz</p>
+            <h1 id="quiz-title">General Knowledge Challenge</h1>
+          </div>
+          <div class="question-chip" id="question-chip">Question 1 / 5</div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div id="quiz-screen" class="quiz-screen">
+          <p class="question-counter" id="question-counter">Question 1 of 5</p>
+          <h2 class="question-text" id="question-text"></h2>
+          <div class="options" id="options" role="radiogroup" aria-label="Answer choices"></div>
+        </div>
+
+        <div id="result-screen" class="result-screen hidden" aria-live="polite">
+          <p class="eyebrow">Quiz Complete</p>
+          <h2>Congratulations</h2>
+          <p class="result-copy" id="result-copy"></p>
+          <button class="next-button" id="restart-button" type="button">Try Again</button>
+        </div>
+
+        <button class="next-button" id="next-button" type="button" disabled>Next</button>
+      </section>
+    </main>
+
+    <div class="confetti-layer" id="confetti-layer" aria-hidden="true"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
