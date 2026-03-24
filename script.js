@@ -21,7 +21,7 @@ const questions = [
   },
   {
     prompt: "2 + 2 = ?",
-    options: ["2", "21", "4", "88"],
+    options: ["2", "21", "4", "54"],
     answer: "4",
   },
 ];
