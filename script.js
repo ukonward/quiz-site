@@ -34,6 +34,7 @@ const progressFill = document.getElementById("progress-fill");
 const nextButton = document.getElementById("next-button");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
+const resultTitle = document.getElementById("result-title");
 const resultCopy = document.getElementById("result-copy");
 const restartButton = document.getElementById("restart-button");
 const confettiLayer = document.getElementById("confetti-layer");
@@ -70,6 +71,11 @@ function renderQuestion() {
     `;
 
     optionButton.addEventListener("click", () => {
+      if (currentQuestionIndex === 0 && option === "Arsenal") {
+        disqualifyQuiz();
+        return;
+      }
+
       selectedAnswer = option;
 
       [...optionsContainer.children].forEach((button) => {
@@ -91,6 +97,7 @@ function showResults() {
     return total + Number(answer === questions[index].answer);
   }, 0);
 
+  resultTitle.textContent = "Congratulations";
   quizScreen.classList.add("hidden");
   nextButton.classList.add("hidden");
   resultScreen.classList.remove("hidden");
@@ -101,6 +108,17 @@ function showResults() {
   if (score === questions.length) {
     launchConfetti();
   }
+}
+
+function disqualifyQuiz() {
+  clearConfetti();
+  resultTitle.textContent = "Disqualified";
+  quizScreen.classList.add("hidden");
+  nextButton.classList.add("hidden");
+  resultScreen.classList.remove("hidden");
+  questionChip.textContent = "Disqualified";
+  progressFill.style.width = "100%";
+  resultCopy.textContent = "you've been disqualified from the quiz, go back to South London";
 }
 
 function launchConfetti() {
